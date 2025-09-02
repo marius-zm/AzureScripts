@@ -2,29 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 import re
+from lib.functions import center_window
+from style import init_style
 
-# Annahme: Diese Module existieren im selben Verzeichnis oder im Python-Pfad
-# from style import init_style
-# from lib.functions import center_window
-
-
-# --- Platzhalter für die externen Funktionen, damit das Skript lauffähig ist ---
-def init_style():
-    pass
-
-
-def center_window(window, width, height):
-    screen_width = window.winfo_screenwidth()
-    screen_height = window.winfo_screenheight()
-    x = (screen_width / 2) - (width / 2)
-    y = (screen_height / 2) - (height / 2)
-    window.geometry(f"{width}x{height}+{int(x)}+{int(y)}")
-
-
-# --- Ende der Platzhalter ---
-
-
-# FINAL: SKU-Liste exakt an die erlaubten Größen aus dem Screenshot angepasst.
 SKU_MAP = {
     "francecentral": ["Standard_B1s", "Standard_B2ms", "Standard_D2s_v3"],
     "canadacentral": ["Standard_B1s", "Standard_B2ms", "Standard_D2s_v3"],
@@ -37,7 +17,7 @@ class App(tk.Tk):
         super().__init__(master)
 
         self.width = 700
-        self.height = 920
+        self.height = 700
         self.withdraw()
 
         self.title("Azure VM Script Generator")
